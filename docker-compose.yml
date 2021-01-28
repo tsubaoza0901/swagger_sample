@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: swagger-sample
+    volumes:
+      - '.:/go/src/app'
+    ports:
+      - '9105:9105'
+    tty: true
+    stdin_open: true
