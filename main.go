@@ -4,8 +4,12 @@ import (
 	"net/http"
 	"strconv"
 
+	echoSwagger "github.com/swaggo/echo-swagger"
+
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/gommon/log"
+
+	"ozawa-swagger-sample/docs"
 )
 
 // --------
@@ -14,9 +18,9 @@ import (
 
 // User ...
 type User struct {
-	ID   uint   `json:"id" param:"id"`
-	Name string `json:"name" validate:"required"`
-	Age  int    `json:"age"`
+	ID   uint   `json:"id" example:"1"`
+	Name string `json:"name" example:"Tom"`
+	Age  int    `json:"age" example:"20"`
 }
 
 // --------
@@ -76,6 +80,18 @@ func (u *User) DeleteUser(c echo.Context) error {
 }
 
 // GetUser ...
+// @Summary Show a user
+// @Description get user by ID
+// @ID get-user-by-int
+// @Accept application/json
+// @Produce application/json
+// @Param id path int true "User ID"
+// @Success 200 {object} User
+// @Failure 400,404 "Error"
+// @Failure 500 "Error"
+// @Failure default "Error"
+// @Resource /user
+// @Router /user/{id} [get]
 func (u *User) GetUser(c echo.Context) error {
 	user := User{}
 
@@ -158,8 +174,27 @@ func (u *User) GetUsers(c echo.Context) error {
 // main.go↓
 // --------
 
+// @termsOfService http://swagger.io/terms/
+
+// @contact.name API Support
+// @contact.url http://www.swagger.io/support
+// @contact.email support@swagger.io
+
+// @license.name Apache 2.0
+// @license.url http://www.apache.org/licenses/LICENSE-2.0.html
 func main() {
 	e := echo.New()
+
+	// swagger用のルーティング
+	e.GET("/swagger/*", echoSwagger.WrapHandler)
+
+	// programmaticallyにswagger infoを設定したい場合は以下のようにすることも可能
+	docs.SwaggerInfo.Title = "Swagger Example API"
+	docs.SwaggerInfo.Description = "This is a sample server."
+	docs.SwaggerInfo.Version = "1.0"
+	docs.SwaggerInfo.Host = "localhost:9105"
+	docs.SwaggerInfo.BasePath = "/"
+	docs.SwaggerInfo.Schemes = []string{"http", "https"}
 
 	u := new(User)
 	InitRouting(e, u)
