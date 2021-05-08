@@ -22,7 +22,7 @@ main.go: no such file or directory
 
 ## 3．echo-swagger の設定
 
-① echo-swagger の import
+### ① echo-swagger の import
 
 swagger の設定を行うファイルで echo-swagger を import
 
@@ -36,7 +36,7 @@ import "github.com/swaggo/echo-swagger"
 $ go get -u github.com/swaggo/echo-swagger
 ```
 
-② swagger 用のルーティング設定
+### ② swagger 用のルーティング設定
 
 example ）
 
