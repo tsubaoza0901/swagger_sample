@@ -1,14 +1,14 @@
 # swagger_sample
 
-# つくり方
+# echo-swagger の導入方法
 
-1．Swag のインストール
+## 1．Swag のインストール
 
 ```
 $ go get github.com/swaggo/swag/cmd/swag
 ```
 
-2．Swagger 用ファイルの生成
+## 2．Swagger 用ファイルの生成
 
 ```
 $ swag init
@@ -20,7 +20,7 @@ $ swag init
 main.go: no such file or directory
 ```
 
-3．echo-swagger の設定
+## 3．echo-swagger の設定
 
 ① echo-swagger の import
 
@@ -62,7 +62,7 @@ func main() {
 
 # 使い方
 
-1．Swagger 用のコメントを記載
+## 1．Swagger 用のコメントを記載
 
 example ）
 
@@ -88,13 +88,13 @@ func (u *User) GetUser(c echo.Context) error {
 }
 ```
 
-2．Swagger 用ファイルの生成（更新）
+## 2．Swagger 用ファイルの生成（更新）
 
 ```
 $ swag init
 ```
 
-3．Swagger Api ドキュメントへのアクセス
+## 3．Swagger Api ドキュメントへのアクセス
 
 http://localhost:9105/swagger/index.html,
 
