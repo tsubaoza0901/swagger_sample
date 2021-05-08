@@ -100,8 +100,8 @@ http://localhost:9105/swagger/index.html
 
 # 参考
 
-・Github | swaggo/echo-swagger  
-https://github.com/swaggo/echo-swagger
+・Swagger（ https://swagger.io/ ）
 
-・Qiita | [swaggo]Go の GoDoc を書いたら、Swagger を出せるやばいやつ  
-https://qiita.com/pei0804/items/3a0b481d1e47e5a72078
+・Github | swaggo/echo-swagger（ https://github.com/swaggo/echo-swagger ）
+
+・Qiita | [swaggo]Go の GoDoc を書いたら、Swagger を出せるやばいやつ（ https://qiita.com/pei0804/items/3a0b481d1e47e5a72078 ）
